@@ -15,6 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -137,6 +141,40 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+        }
+        @Override
+        protected void onPostExecute(String o) {
+            super.onPostExecute(o);
+            Log.d("lisaslog","DataFetched"+o);
+            try {
+                JSONArray allaberg = new JSONArray(o);
+                adapter.clear();
+                for (int start=0;start<allaberg.length();start++){
+                    JSONObject hej = allaberg.getJSONObject(start);
+                    int mountainid = hej.getInt("ID");
+                    String mountainname = hej.getString("name");
+                    String mountaintype = hej.getString("type");
+                    String mountaincompany = hej.getString("company");
+                    String mountainlocation = hej.getString("location");
+                    String mountaincategory = hej.getString("category");
+                    int mountainheight = hej.getInt("size");
+                    int mountaincost = hej.getInt("cost");
+                    String mountainauxdata = hej.getString("auxdata");
+
+                    Mountain m = new Mountain(mountainname,mountainlocation,mountainheight);
+                    adapter.add(m);
+
+                    Log.d("lisaslog","forloopvarv "+start+mountainname);
+                }
+            } catch (JSONException e) {
+                Log.e("lisaslog","E:"+e.getMessage());
+            }
+
+            // This code executes after we have received our data. The String object o holds
+            // the un-parsed JSON string or is null if we had an IOException during the fetch.
+
+            // Implement a parsing code that loops through the entire JSON and creates objects
+            // of our newly created Mountain class.
         }
     }
 }
