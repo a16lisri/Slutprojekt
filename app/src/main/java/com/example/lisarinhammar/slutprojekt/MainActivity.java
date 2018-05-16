@@ -147,24 +147,24 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(o);
             Log.d("lisaslog","DataFetched"+o);
             try {
-                JSONArray allaberg = new JSONArray(o);
+                JSONArray allaserier = new JSONArray(o);
                 adapter.clear();
-                for (int start=0;start<allaberg.length();start++){
-                    JSONObject hej = allaberg.getJSONObject(start);
-                    int mountainid = hej.getInt("ID");
-                    String mountainname = hej.getString("name");
-                    String mountaintype = hej.getString("type");
-                    String mountaincompany = hej.getString("company");
-                    String mountainlocation = hej.getString("location");
-                    String mountaincategory = hej.getString("category");
-                    int mountainheight = hej.getInt("size");
-                    int mountaincost = hej.getInt("cost");
-                    String mountainauxdata = hej.getString("auxdata");
+                for (int start=0;start<allaserier.length();start++){
+                    JSONObject favorit = allaserier.getJSONObject(start);
+                    int serieid = favorit.getInt("ID");
+                    String seriename = favorit.getString("name");
+                    String login = favorit.getString("login");
+                    String seriecompany = favorit.getString("company");
+                    int release = favorit.getInt("size");
+                    String rating = favorit.getString("location");
+                    String seriegenre = favorit.getString("category");
+                    int seriecost = favorit.getInt("cost");
+                    String serieauxdata = favorit.getString("auxdata");
 
-                    Mountain m = new Mountain(mountainname,mountainlocation,mountainheight);
+                    Serier m = new Serier(serieid,seriename,login,seriecompany,release,seriecost,rating,seriegenre,serieauxdata);
                     adapter.add(m);
 
-                    Log.d("lisaslog","forloopvarv "+start+mountainname);
+                    Log.d("lisaslog","forloopvarv "+start+seriename);
                 }
             } catch (JSONException e) {
                 Log.e("lisaslog","E:"+e.getMessage());
