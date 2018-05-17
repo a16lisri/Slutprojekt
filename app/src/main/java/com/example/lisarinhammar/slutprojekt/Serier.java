@@ -30,12 +30,14 @@ public Serier (int inID, String inName, String inLogin, String inCompany, int in
 
     public String Lisasfunk(){
         String str=name;
-        str+="  ";
+        str+=" (";
         str+=release;
-        str+=" mountain range and is ";
-        str+=Integer.toString(Integer.parseInt(rating));
-        str+="m";
-        str+=" high.";
+        str+="-)";
+        str+=" is a \"";
+        str+=genre;
+        str+=" \"-series, which has a ";
+        str+=rating;
+        str+=" rating on IMDB.";
         return str;
     }
     @Override

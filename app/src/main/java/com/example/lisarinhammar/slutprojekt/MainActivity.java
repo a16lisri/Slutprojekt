@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Serier m = lisasserier.get(position);
                 Toast.makeText(getApplicationContext(), m.Lisasfunk(), Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -71,14 +72,18 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()){
+            case R.id.meny_about:
+                String aboutsida = "Target audience is people who enjoy watching series and want to watch more.";
+                Toast.makeText(getApplicationContext(),aboutsida,Toast.LENGTH_LONG).show();
+                return true;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+
+
     }
 
     private class FetchData extends AsyncTask<Void, Void, String> {
