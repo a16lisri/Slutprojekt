@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject favorit = allaserier.getJSONObject(start);
                     int serieid = favorit.getInt("ID");
                     String seriename = favorit.getString("name");
-                    String login = favorit.getString("login");
+                    String login = favorit.getString("type");
                     String seriecompany = favorit.getString("company");
                     int release = favorit.getInt("size");
                     String rating = favorit.getString("location");
@@ -166,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
 
                     Log.d("lisaslog","forloopvarv "+start+seriename);
                 }
+                Log.d("lisaslog","efter forloop "+adapter.getCount());
+
             } catch (JSONException e) {
                 Log.e("lisaslog","E:"+e.getMessage());
             }
