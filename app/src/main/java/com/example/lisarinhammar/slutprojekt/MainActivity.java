@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()){
             case R.id.meny_about:
-                String aboutsida = "Target audience is people who enjoy watching series and want to watch more.";
+                String aboutsida = "Target audience is people who enjoy watching series.";
                 Toast.makeText(getApplicationContext(),aboutsida,Toast.LENGTH_LONG).show();
                 return true;
 

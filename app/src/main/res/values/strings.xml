@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Slutprojekt</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">SeriesWatcher</string>
+    <string name="meny_about">About</string>
 </resources>
